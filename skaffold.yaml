@@ -9,6 +9,7 @@ build:
     push: false
   artifacts:
     - image: stephengrider/auth
+    # - image: kmpartner/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -26,6 +27,30 @@ build:
             dest: .
     - image: stephengrider/tickets
       context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: stephengrider/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: stephengrider/expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: stephengrider/payments
+      context: payments
       docker:
         dockerfile: Dockerfile
       sync:
