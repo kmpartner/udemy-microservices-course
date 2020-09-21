@@ -15,4 +15,4 @@ jobs:
         with:
           token: ${{ secrets.DIGITAL_ACCESS_TOKEN}}
       - run: doctl kubernetes cluster kubeconfig save test-monitor-etc
-      - run: kubectl apply -f infra/k8s
+      - run: kubectl apply -f infra/k8s && kubectl apply -f infra/k8s-prod
